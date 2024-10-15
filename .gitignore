@@ -128,3 +128,25 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+pnpm-debug.log*
+lerna-debug.log*
+
+server.cert
+server.key
+coverage
+node_modules
+dist
+build
+dist-ssr
+*.local
+.env
+
+# Editor directories and files
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
