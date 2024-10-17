@@ -6,7 +6,6 @@ import { GetResultsIdRequest, getResultsIdRequestSchema } from "./types";
 
 class UrlScannerController {
     public scanUrl: RequestHandler = async (req: Request, res: Response) => {
-        validateRequest(getResultsIdRequestSchema);
 
         const request: GetResultsIdRequest = req.body;
         const serviceResponse = await (new UrlScannerService()).scanUrl(request.url);

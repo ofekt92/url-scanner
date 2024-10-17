@@ -4,9 +4,11 @@ import fs from "fs";
 import https from "https";
 import path from "path";
 
-const privateKey = fs.readFileSync(path.join(__dirname, "../", 'server.key'), 'utf8');
-const certificate = fs.readFileSync(path.join(__dirname, "../", 'server.cert'), 'utf8');
-const credentials = { key: privateKey, cert: certificate };
+const privateKey = fs.readFileSync(path.join(__dirname, '../urlsec.key'), 'utf8');
+const certificate = fs.readFileSync(path.join(__dirname, '../urlsec.crt'), 'utf8');
+const ca = fs.readFileSync(path.join(__dirname, '../ca.crt'), 'utf8');
+const credentials = { key: privateKey, cert: certificate, ca };
+
 
 // Create HTTPS server
 const httpsServer = https.createServer(credentials, app).listen(env.PORT, () => {

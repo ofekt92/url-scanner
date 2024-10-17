@@ -21,17 +21,20 @@ export class UrlScannerService {
 
         const resultId = await this.getAnalysisId(url);
 
+        console.log("ResultId: ", resultId);
         if (!resultId) {
             return ServiceResponse.failure("Failed to get result id", null, 500);
         }
 
         const analaysisResultResponse = await this.getAnalysisResult(resultId);
+        console.log("AnalysisResult: ", analaysisResultResponse);
 
         if (!analaysisResultResponse) {
             return ServiceResponse.failure("Failed to get analysis result", null, 500);
         }
 
         const score = this.scoringService.calculateScore(analaysisResultResponse.data.attributes.stats);
+        console.log("Score: ", score);
         return ServiceResponse.success({ score }, 200);
     }
 
